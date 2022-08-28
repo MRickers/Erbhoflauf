@@ -1,0 +1,24 @@
+.lauf-Gelb {
+    color: #EBDF27;
+} 
+.lauf-hellblau {
+    color: #9E9EEC;
+}
+.lauf-dunkelblau {
+    color: #2E1A75;
+}
+
+h2 {
+    text-decoration: underline;
+    color: #9E9EEC;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+p {
+    color: var(--bs-secondary);
+}
+
+body {
+    background-color: var(--bs-light);
+}
