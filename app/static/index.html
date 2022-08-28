@@ -10,10 +10,10 @@
   </head>
   <body>
     <!-- Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid d-flex">
         <a class="navbar-brand" href="https://tsv-thedinghausen.de">
-          <img src="img/erbhoflauflogo-1.png" alt="" width="80%" height="auto">
+          <img src="img/erbhoflauflogo-1.png" alt="" width="60%" height="auto">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,10 @@
             <div class="navbar-nav">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item me-5">
-                  <a class="nav-link active fw-bold fs-2" href="#">Der Lauf</a>
+                  <a class="nav-link fw-bold fs-2" href="index.html">Startseite</a>
+                </li>
+                <li class="nav-item me-5">
+                  <a class="nav-link fw-bold fs-2" href="lauf.html">Strecke & Infos</a>
                 </li>
                 <li class="nav-item me-5">
                   <a class="nav-link fw-bold fs-2" href="#">Fotos</a>
@@ -38,7 +41,7 @@
       </div>
     </nav>
     <!-- Title bar-->
-    <div class="d-flex p-2 bd-highlight bg-primary justify-content-center fw-bold fs-4">Der nächste Lauf startet am 09.10.2022</div>
+    <div class="d-flex p-2 bd-highlight justify-content-center title-bar">Der nächste Lauf startet am 09.10.2022</div>
     <!-- Content-->
     <div class="container mt-5">
       <div class="row">
@@ -65,124 +68,42 @@
         <img src="img/genehmigter_lauf_best2022.png" alt="" width="auto" height="50%">
         <img src="img/genehmigter_lauf_walken2022.png" alt="" width="auto" height="50%">
       </div>
+    </div>
 
-      <div class="row py-5">
-        <div class="container">
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <a class="nav-link active" data-bs-toggle="pill" href="#W5km">Wettbewerb 5km</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="pill" href="#W10km">Wettbewerb 10km</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="pill" href="#W900">Wettbewerb 900m Löwenlauf</a>
-            </li>
+    <footer class="container-fluid">
+      <div class="row footer-content">
+        <div class="col-sm-3">
+          <h5>Kontakt</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kontakt</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Feedback</a></li>
           </ul>
-          
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane container active" id="W5km">
-              <p><b>Startzeit:</b> 12:15 Uhr</p>
-              <p><b>Startgeld:</b> 7 € ermäßigt 5 € (U12- U20) – bis zum 05. Okt., für Nachmelder bis
-                60 min vor dem jeweiligen Lauf vor Ort zzgl. 3,00 €</p>
-              <p><b>Alterklassen:</b> U12 bis M/W 80ä</p>
-              <p>Männer, Frauen, Senioren/innen. <br>Ab M/W 40 Altersklassenwertungen, U20, U18, U16, U14, U12 ohne Jahrgangswertung</p>
-              <ul>
-                <li>männliche/weibliche Kinder U 12 2011/2012</li>
-                <li>männliche/weibliche Jgd. U 14 2009/2010</li>
-                <li>männliche/weibliche Jgd. U 16 2007/2008</li>
-                <li>männliche/weibliche Jgd. U 18 2005/2006</li>
-                <li>männliche/weibliche Jgd. U20 2003/2004</li>
-                <li>Männer/Frauen 1983 – 2002</li>
-                <li>M/W 40 1978 – 1982</li>
-                <li>M/W 45 1973 – 1977</li>
-                <li>M/W 50 1968 – 1972</li>
-                <li>M/W 55 1963 – 1967</li>
-                <li>M/W 60 1958 – 1962</li>
-                <li>M/W 65 1953 – 1957</li>
-                <li>M/W 70 und älter 1952 u. älter</li>
-              </ul>  
-
+        </div>
+        
+        <div class="col-sm-3">
+          <h5>Rechtliches</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">AGB</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Impressum</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Datenschutz</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Widerrufsbelehrung</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-sm-3 offset-1">
+          <form>
+            <h5>Abonniere unseren Newsletter</h5>
+            <p>Bleibe auf dem Laufenden und bekomme stets die neuesten Informationen</p>
+            <div class="d-flex w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Emailadresse</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Emailadresse">
+              <button class="btn" type="button">Subscribe</button>
             </div>
-            <div class="tab-pane container fade" id="W10km">
-              <p><b>Startzeit:</b> 13:15 Uhr</p>
-              <p><b>Startgeld:</b> 7 € ermäßigt 5 € (U12- U20) – bis zum 05. Okt., für Nachmelder bis
-                60 min vor dem jeweiligen Lauf vor Ort zzgl. 3,00 €</p>
-              <p><b>Alterklassen:</b> U20 bis M/W 80ä</p>
-              <p>Männer, Frauen, Senioren/innen, ab M/W 40 Altersklassenwertungen, Jugendliche U20 M/W</p>
-              <ul>
-                <li>männliche/weibliche Jgd. U18 2005/2006</li>
-                <li>männliche/weibliche Jgd. U20 2003/2004</li>
-                <li>Männer/Frauen 1983 – 2002</li>
-                <li>M/W 40 1978 – 1982</li>
-                <li>M/W 45 1973 – 1977</li>
-                <li>-M/W 50 1968 – 1972</li>
-                <li>-M/W 55 1963 – 1967</li>
-                <li>-M/W 60 1958 – 1962</li>
-                <li>-M/W 65 1953 – 1957</li>
-                <li>-M/W 70 und älter 1952 u. älter</li>
-              </ul>  
-            </div>
-            <div class="tab-pane container fade" id="W900">
-              <p><b>Startzeit:</b> 11:00 Uhr</p>
-              <p><b>Startgeld:</b> 2 €, mit Voranmeldung, Nachmeldungen zzgl. 1€</p>
-              <p><b>Alterklassen:</b> bis 11 Jahre Jg. 2011 und jünger, U12, U10, U8</p>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
-
-    </div>
-
-
-
-    <div class="container mt-5">
-      <h1>Überschrift</h1>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="container mt-5">
-      <h1>Überschrift</h1>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="container mt-5">
-      <h1>Überschrift</h1>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-    </div>
-
-    <div class="container-fluid bg-light">
-      <footer class="container">
-        <div class="row my-4 py-4">
-          <div class="col-sm-3">
-            <h5>Kontakt</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kontakt</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Feedback</a></li>
-            </ul>
-          </div>
-          
-          <div class="col-sm-3">
-            <h5>Rechtliches</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">AGB</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Impressum</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Datenschutz</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Widerrufsbelehrung</a></li>
-            </ul>
-          </div>
-    
-          <div class="col-sm-3 offset-1">
-            <form>
-              <h5>Aboniere unseren Newsletter</h5>
-              <p>Bleibe auf dem Laufenden und bekomme stets die neuesten Informationen</p>
-              <div class="d-flex w-100 gap-2">
-                <label for="newsletter1" class="visually-hidden">Emailadresse</label>
-                <input id="newsletter1" type="text" class="form-control" placeholder="Emailadresse">
-                <button class="btn btn-primary" type="button">Subscribe</button>
-              </div>
-            </form>
-          </div>
-        <div class="d-flex justify-content-between py-4 my-4 border-top">
+      <div class="row">
+        <div class="d-flex justify-content-between bg-dark">
           <p>© Copyright 2022 Schloss Erbhoflauf</p>
           <div class="col-1">
             <p class="fw-bold">Folge Uns</p>
@@ -190,10 +111,8 @@
               <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/tselauf/"><img src="img/2021_Facebook_icon.svg.png" alt="" width="24" height="24"></a></li>
               <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
             </ul>
-
-          </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>

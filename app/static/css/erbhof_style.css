@@ -15,10 +15,52 @@ h2 {
     font-weight: bold;
 }
 
+h5 {
+    color: #EBDF27;
+}
+
 p {
     color: var(--bs-secondary);
 }
 
 body {
     background-color: var(--bs-light);
+    padding-top:9%;
+}
+
+@media only screen and (max-width: 550px) {
+    body {
+        background-color: var(--bs-light);
+        padding-top:35%;
+    }
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: white;
+    color:black;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+    background-color:#9E9EEC;
+}
+
+.btn {
+    background-color: #EBDF27;
+}
+
+.footer-content {
+    background-color: #2E1A75;
+}
+
+.title-bar {
+    background-color:#2E1A75;
+    font-weight: bold;
+    font-size:x-large;
+    color: #EBDF27;
+}
+
+.nav-item {
+    color:#2E1A75;
 }
