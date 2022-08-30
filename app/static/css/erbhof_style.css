@@ -23,16 +23,16 @@ p {
     color: var(--bs-secondary);
 }
 
-body {
-    background-color: var(--bs-light);
-    padding-top:9%;
+.menu-img {
+    min-width: 200px !important;
+    width:50%;
+    height: auto;
 }
 
-@media only screen and (max-width: 550px) {
-    body {
-        background-color: var(--bs-light);
-        padding-top:35%;
-    }
+.medal-img {
+    min-width: 200px !important;
+    width:50%;
+    height: auto;
 }
 
 .accordion-button:not(.collapsed) {
