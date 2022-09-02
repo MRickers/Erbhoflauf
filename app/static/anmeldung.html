@@ -33,7 +33,7 @@
                   <a class="nav-link fw-bold fs-3" href="#">Fotos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link fw-bold fs-3" href="anmeldung.html">Anmeldung</a>
+                  <a class="nav-link fw-bold fs-3" href="#">Anmeldung</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link fw-bold fs-3" aria-current="page" href="#">Ergebnisse</a>
@@ -46,37 +46,49 @@
     <div class="d-flex p-2 bd-highlight justify-content-center title-bar">Der nächste Lauf startet am 09.10.2022</div>
     <!-- Content-->
     <div class="container mt-5">
-      <div class="row">
-        <h2>7. Thänhuser Schloss Erbhof-Lauf</h2>
-        <p>Liebe Läuferinnen und Läufer,<br><br>
-  
-          leider fielen der 5. und 6. Thänhuser Schloss Erbhof-Lauf wegen Corona aus.<br>
-          Der 7. Thänhuser Schloss Erbhof–Lauf soll nun, wie gewohnt, am zweiten Sonntag im Oktober, also am 9. Oktober 2022
-          stattfinden. Dazu laden wir Euch herzlich ein. Ob und unter welchen Bedingungen (Corona) dieser stattfinden kann, muss zu
-          gegebener Zeit festgelegt und entschieden werden.<br>
-          
-          Auf einer Strecke von entweder 5 oder 10 km geht es durch Thedinghausen. Die offiziell vom DLV vermessene Strecke ist
-          sorgfältig ausgewählt und führt über flache befestigte Straßen. Startpunkt und Ziellinie liegen gegenüber des Schloss Erbhofs in
-          Thedinghausen an der Kirchwiehe. Zum Bewältigen der 10 km Strecke muss der 5 km Rundlauf zweimal durchlaufen werden. Für
-          die Kinder bieten wir im Baumpark des Schloss Erbhofs den sogenannten Löwenlauf über ca. 900 m an.<br>
-          Walker/ Nordic-Walker sind über die 5 km Strecke gerne willkommen.<br>
-          
-          Die Veranstaltung wurde vom Niedersächsischen Leichtathletik Verband als Volks- und Straßenlauf mit der Veranstaltungs-Nr.
-          22V09000561500000 als stadionferne Veranstaltung genehmigt. Das Vermessungsprotokoll für den 5 km und 10 km
-          Straßenlauf wurde vom DLV im April 2016 genehmigt sowie im September 2021 verlängert und kann im Wettkampfbüro
-          eingesehen werden.</p>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2">
-            <img class="img-fluid" src="img/genehmigter_lauf_best2022.png" alt="">        
-          </div>
-          <div class="col-sm-2">
-            <img class="img-fluid" src="img/genehmigter_lauf_walken2022.png" alt="">
-          </div>
-        </div>
-        
-      </div>
+        <h2>Anmeldung</h2>
+        <form class="row g-3">
+            <div class="col-md-6">
+              <label for="inputFirstName" class="form-label"><b>Vorname</b></label>
+              <input type="text" class="form-control" id="inputFirstName" placeholder="Martina">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLastName" class="form-label"><b>Nachname</b></label>
+              <input type="text" class="form-control" id="inputLastName" placeholder="Musterfrau">
+            </div>
+            <div class="col-md-3">
+                <label for="inputGender" class="form-label"><b>Geschlecht</b></label>
+                <select class="form-select" aria-label="inputGender">
+                    <option selected>Weiblich</option>
+                    <option value="1">Männlich</option>
+                    <option value="2">Diverse</option>
+                  </select>
+            </div>
+            <div class="col-3">
+              <label for="inputYear" class="form-label"><b>Jahrgang</b></label>
+              <input type="text" class="form-control" id="inputYear">
+            </div>
+            <div class="col-md-3">
+              <label for="inputTeam" class="form-label"><b>Verein/Team</b></label>
+              <input type="text" class="form-control" id="inputTeam">
+            </div>
+            <div class="col-md-3">
+              <label for="inputCity" class="form-label"><b>Wohnort</b></label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3">
+              <label for="inputZip" class="form-label"><b>Strecke</b></label>
+              <select id="inputState" class="form-select">
+                <option selected>5km</option>
+                <option>10km</option>
+                <option>900m Löwenlauf</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Abschicken</button>
+            </div>
+          </form>
+
     </div>
 
     <footer class="container-fluid pt-5">
