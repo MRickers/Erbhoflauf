@@ -1,13 +1,14 @@
 package main
 
 import (
-    "log"
-    "net/http"
+	"log"
+	"net/http"
 )
 
 func main() {
+	log.Println(greetings.Hello("Uwe"))
 
-    http.Handle("/", http.FileServer(http.Dir("./app/static")))
+	http.Handle("/", http.FileServer(http.Dir("./app/static")))
 
-    log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }
