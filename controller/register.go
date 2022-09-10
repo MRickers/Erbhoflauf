@@ -1,22 +1,37 @@
 package controller
 
 import (
-	"github.com/MRickers/Erbhoflauf/utils"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+
+	"github.com/MRickers/Erbhoflauf/models"
 )
 
-type EmailNotifier struct {
-	
-}
 type RegisterHandler struct {
-	notifier Notifier
+	Notify models.Notifier
 }
 
-// Sends \p message string to \p to
-// via Mail, Telegram, ...
-type Notifier interface {
-	Notify(to string, message string) utils.AppError
+func New(n models.Notifier) http.Handler {
+	return &RegisterHandler{
+		Notify: n,
+	}
 }
 
-func 
-// Register Handler
+func (h *RegisterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	fmt.Println("ServeHTTP :D")
 
+	payload, err := io.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
+	var user models.User
+	// Convert to User type
+	err = json.Unmarshal(payload, &user)
+	if err != nil {
+		panic(err)
+	}
+
+}
