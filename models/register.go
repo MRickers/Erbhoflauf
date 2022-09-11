@@ -22,6 +22,19 @@ const (
 	Diverse        = "diverse"
 )
 
+func TrackToString(t TrackLength) string {
+	switch t {
+	case Short900m:
+		return "900m Löwenlauf"
+	case Short5km:
+		return "5km"
+	case Long10km:
+		return "10km"
+	default:
+		return "Invalid distance"
+	}
+}
+
 // User to register
 type User struct {
 	Name     string      `json:"name"`
@@ -47,6 +60,19 @@ func (u *User) Deserialize(stream string) error {
 	return err
 }
 
+func (u *User) FormatMail() string {
+	return fmt.Sprintf(
+		"Neue Anmeldung für den  Schloss-Erbhoflauf!\r\n"+
+			"Name: %s\r\n"+
+			"Vorname: %s\r\n"+
+			"Wohnort: %s\r\n"+
+			"Geschlecht: %s\r\n"+
+			"Jahrgang: %d\r\n"+
+			"Team/Verein: %s\r\n"+
+			"E-Mail: %s\r\n"+
+			"Strecke: %s\r\n", u.Lastname, u.Name, u.City, u.Gender, u.Year, u.Team, u.Email, TrackToString(u.Distance))
+}
+
 type EmailNotifier struct {
 	Host string
 	Pw   string
@@ -66,8 +92,12 @@ type Notifier interface {
 	Notify(to string, message string) utils.AppError
 }
 
-// Convert string stream to user and back
+// Convert stream to struct and back
 type Converter interface {
-	Deserialize(stream string) (User, error)
-	Serialize(User) (string, error)
+	Deserialize(stream string) error
+	Serialize() (string, error)
+}
+
+type MailFormatter interface {
+	FormatMail() string
 }

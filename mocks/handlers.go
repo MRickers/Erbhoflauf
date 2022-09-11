@@ -23,7 +23,7 @@ func (m *MockNotifier) Notify(to string, message string) utils.AppError {
 	}
 }
 
-func New() *MockNotifier {
+func NewMockNotifier() *MockNotifier {
 	return &MockNotifier{
 		To:      "",
 		Message: "",

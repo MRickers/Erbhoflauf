@@ -1,37 +1,44 @@
 package controller
 
 import (
-	"encoding/json"
-	"fmt"
 	"io"
+	"log"
 	"net/http"
 
 	"github.com/MRickers/Erbhoflauf/models"
 )
 
 type RegisterHandler struct {
-	Notify models.Notifier
+	Notifier models.Notifier
 }
 
-func New(n models.Notifier) http.Handler {
+func NewHandler(n models.Notifier) http.Handler {
 	return &RegisterHandler{
-		Notify: n,
+		Notifier: n,
 	}
 }
 
 func (h *RegisterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	fmt.Println("ServeHTTP :D")
 
 	payload, err := io.ReadAll(r.Body)
 	if err != nil {
-		panic(err)
-	}
-	var user models.User
-	// Convert to User type
-	err = json.Unmarshal(payload, &user)
-	if err != nil {
-		panic(err)
+		log.Fatalf("Read HTTP body failed: %s", err)
+		return
 	}
 
+	user := models.User{}
+
+	err = user.Deserialize(string(payload))
+
+	if err != nil {
+		log.Fatalf("Deserialize to user failed: %s", err)
+		return
+	}
+
+	error := h.Notifier.Notify(user.Email, user.FormatMail())
+
+	if error.Code != 0 {
+		log.Fatalf("Notify %s failed: %s (%d)", user.Email, error.Message, error.Code)
+	}
 }

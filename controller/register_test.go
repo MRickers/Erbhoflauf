@@ -24,23 +24,34 @@ func TestMailHandler(t *testing.T) {
 		Distance: models.Short5km,
 	}
 
-	payload := url.Values{}
-	payload.Add("name", "Name")
-	payload.Add("lastname", "Lastname")
+	userJson, err := user.Serialize()
 
-	r, err := http.NewRequest(http.MethodPost, "/register", strings.NewReader(payload.Encode()))
+	if err != nil {
+		t.Fatalf("Could not serialze user: %s", err)
+	}
+
+	payload := url.Values{}
+	payload.Add("user", userJson)
+
+	r, err := http.NewRequest(http.MethodPost, "/register", strings.NewReader(userJson))
 
 	if err != nil {
 		t.Logf("Request failed: %s", err)
 		return
 	}
 
-	notify := mocks.New()
+	notify := mocks.NewMockNotifier()
 
-	handler := controller.New(notify)
+	handler := controller.NewHandler(notify)
 
 	w := httptest.NewRecorder()
 
 	handler.ServeHTTP(w, r)
 
+	if notify.To != "obiwan@sw.com" {
+		t.Fatalf("Wrong email: %s != obiwan@sw.com", notify.To)
+	}
+	if notify.Message != user.FormatMail() {
+		t.Fatalf("Wrong message: %s != %s", notify.Message, user.FormatMail())
+	}
 }
