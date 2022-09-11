@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/MRickers/Erbhoflauf/models"
+	"github.com/MRickers/Erbhoflauf/utils"
 )
 
 type RegisterHandler struct {
@@ -27,9 +28,7 @@ func (h *RegisterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user := models.User{}
-
-	err = user.Deserialize(string(payload))
+	user, err := utils.Deserialize[models.User](string(payload))
 
 	if err != nil {
 		log.Fatalf("Deserialize to user failed: %s", err)

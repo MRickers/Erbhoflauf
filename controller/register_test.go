@@ -10,6 +10,7 @@ import (
 	"github.com/MRickers/Erbhoflauf/controller"
 	"github.com/MRickers/Erbhoflauf/mocks"
 	"github.com/MRickers/Erbhoflauf/models"
+	"github.com/MRickers/Erbhoflauf/utils"
 )
 
 func TestMailHandler(t *testing.T) {
@@ -24,7 +25,7 @@ func TestMailHandler(t *testing.T) {
 		Distance: models.Short5km,
 	}
 
-	userJson, err := user.Serialize()
+	userJson, err := utils.Serialize[models.User](user)
 
 	if err != nil {
 		t.Fatalf("Could not serialze user: %s", err)

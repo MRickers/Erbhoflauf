@@ -1,7 +1,6 @@
 package models
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/MRickers/Erbhoflauf/utils"
@@ -47,19 +46,6 @@ type User struct {
 	Distance TrackLength `json:"distance"`
 }
 
-func (u *User) Serialize() (string, error) {
-	stream, err := json.Marshal(u)
-	if err != nil {
-		return "", err
-	}
-	return string(stream), nil
-}
-
-func (u *User) Deserialize(stream string) error {
-	err := json.Unmarshal([]byte(stream), u)
-	return err
-}
-
 func (u *User) FormatMail() string {
 	return fmt.Sprintf(
 		"Neue Anmeldung für den  Schloss-Erbhoflauf!\r\n"+
@@ -90,12 +76,6 @@ func (e *EmailNotifier) Notify(to string, message string) utils.AppError {
 // Sends message to to via mail, whatsapp, telegram, etc..
 type Notifier interface {
 	Notify(to string, message string) utils.AppError
-}
-
-// Convert stream to struct and back
-type Converter interface {
-	Deserialize(stream string) error
-	Serialize() (string, error)
 }
 
 type MailFormatter interface {
