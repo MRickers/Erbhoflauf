@@ -8,5 +8,5 @@ import (
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("./app/static")))
 
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(http.ListenAndServe(":80", nil))
 }

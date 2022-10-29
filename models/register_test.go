@@ -4,14 +4,17 @@ import (
 	"testing"
 
 	"github.com/MRickers/Erbhoflauf/models"
+	"github.com/MRickers/Erbhoflauf/utils"
 )
 
 func TestUserModelDeserialze(t *testing.T) {
 	userJson := `{"name": "ObiWan", "lastname":"Kenobi", "gender":"male", "email":"obiwan@sw.com", "year":2000,"team":"Rebellion", "city":"Tetuin", "distance":0}`
 
-	var user models.User
+	user, err := utils.Deserialize[models.User](userJson)
 
-	user.Deserialize(userJson)
+	if err != nil {
+		t.Fatalf("Deserialize failed: %s", err)
+	}
 
 	if user.Name != "ObiWan" {
 		t.Fatalf("Invalid name: %s != %s", user.Name, "ObiWan")
@@ -42,10 +45,11 @@ func TestUserModelDeserialze(t *testing.T) {
 func TestUserModelDeserialzeFailed(t *testing.T) {
 	userJson := `{"name": "ObiWan", "gender":"male", "email":"obiwan@sw.com", "year":2000,"team":"Rebellion", "city":"Tetuin", "distance":0}`
 
-	var user models.User
+	user, err := utils.Deserialize[models.User](userJson)
 
-	user.Deserialize(userJson)
-
+	if err != nil {
+		t.Fatalf("Deserialize failed: %s", err)
+	}
 	if user.Name != "ObiWan" {
 		t.Fatalf("Invalid name: %s != %s", user.Name, "ObiWan")
 	}

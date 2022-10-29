@@ -65,6 +65,7 @@ type EmailNotifier struct {
 }
 
 func (e *EmailNotifier) Notify(to string, message string) utils.AppError {
+
 	return utils.AppError{
 		Error:   fmt.Errorf("Error"),
 		Message: "Error message",

@@ -25,7 +25,7 @@ func TestMailHandler(t *testing.T) {
 		Distance: models.Short5km,
 	}
 
-	userJson, err := utils.Serialize[models.User](user)
+	userJson, err := utils.Serialize(user)
 
 	if err != nil {
 		t.Fatalf("Could not serialze user: %s", err)
@@ -54,5 +54,31 @@ func TestMailHandler(t *testing.T) {
 	}
 	if notify.Message != user.FormatMail() {
 		t.Fatalf("Wrong message: %s != %s", notify.Message, user.FormatMail())
+	}
+}
+
+func TestMailHandlerFail(t *testing.T) {
+	var invalidJson = "{}"
+
+	payload := url.Values{}
+	payload.Add("user", invalidJson)
+
+	r, err := http.NewRequest(http.MethodPost, "/register", strings.NewReader(invalidJson))
+
+	if err != nil {
+		t.Logf("Request failed: %s", err)
+		return
+	}
+
+	notify := mocks.NewMockNotifier()
+
+	handler := controller.NewHandler(notify)
+
+	w := httptest.NewRecorder()
+
+	handler.ServeHTTP(w, r)
+
+	if w.Result().StatusCode != http.StatusInternalServerError {
+		t.Logf("Wrong status code: %d != %d", w.Result().StatusCode, http.StatusInternalServerError)
 	}
 }

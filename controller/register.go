@@ -25,6 +25,8 @@ func (h *RegisterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	payload, err := io.ReadAll(r.Body)
 	if err != nil {
 		log.Fatalf("Read HTTP body failed: %s", err)
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Read HTTP body failed"))
 		return
 	}
 
@@ -32,6 +34,7 @@ func (h *RegisterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		log.Fatalf("Deserialize to user failed: %s", err)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
